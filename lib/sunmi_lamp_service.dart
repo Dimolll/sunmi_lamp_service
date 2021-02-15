@@ -7,37 +7,37 @@ class SunmiLampService {
       const MethodChannel('sunmi_lamp_service');
   static int _tag = 0;
 
-  static Future<bool> startForLoop(int status, String lamp) {
-    int statusN = 0;
+  static Future<bool> startForLoop(String lamp) {
+    int status = 0;
     if (_flag) {
-      statusN = 0;
+      status = 0;
       _tag = 0;
     } else {
-      statusN = 1;
+      status = 1;
       _tag = 1;
     }
     return _channel.invokeMethod(
       'startForLoop',
       <String, dynamic>{
-        'status': statusN,
+        'status': status,
         'lamp': lamp,
       },
     );
   }
 
-  static Future<bool> startForSigle(int status, String lamp) {
-    int statusN = 0;
+  static Future<bool> startForSigle(String lamp) {
+    int status = 0;
     if (_flag) {
-      statusN = 0;
+      status = 0;
       _tag = 0;
     } else {
-      statusN = 1;
+      status = 1;
       _tag = 1;
     }
     return _channel.invokeMethod(
       'startForSigle',
       <String, dynamic>{
-        'status': statusN,
+        'status': status,
         'lamp': lamp,
       },
     );

@@ -106,7 +106,7 @@ class _MyAppState extends State<MyApp> {
 
   Future<void> loop(String data) async {
     try {
-      await SunmiLampService.startForLoop(1, data);
+      await SunmiLampService.startForLoop(data);
     } catch (e) {
       _showError(e);
     }
@@ -114,7 +114,7 @@ class _MyAppState extends State<MyApp> {
 
   Future<void> single(String data) async {
     try {
-      await SunmiLampService.startForSigle(1, data);
+      await SunmiLampService.startForSigle(data);
     } catch (e) {
       _showError(e);
     }
