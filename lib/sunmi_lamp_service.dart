@@ -7,7 +7,7 @@ class SunmiLampService {
       const MethodChannel('sunmi_lamp_service');
   static int _tag = 0;
 
-  static Future<bool> startForLoop(String lamp) {
+  static Future<bool> startForLoop(String lamp, {int inputStatus}) {
     int status = 0;
     if (_flag) {
       status = 0;
@@ -19,13 +19,13 @@ class SunmiLampService {
     return _channel.invokeMethod(
       'startForLoop',
       <String, dynamic>{
-        'status': status,
+        'status': inputStatus ?? status,
         'lamp': lamp,
       },
     );
   }
 
-  static Future<bool> startForSigle(String lamp) {
+  static Future<bool> startForSingle(String lamp, {int inputStatus}) {
     int status = 0;
     if (_flag) {
       status = 0;
@@ -35,9 +35,9 @@ class SunmiLampService {
       _tag = 1;
     }
     return _channel.invokeMethod(
-      'startForSigle',
+      'startForSingle',
       <String, dynamic>{
-        'status': status,
+        'status': inputStatus ?? status,
         'lamp': lamp,
       },
     );

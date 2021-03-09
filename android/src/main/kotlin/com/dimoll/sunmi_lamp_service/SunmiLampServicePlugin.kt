@@ -33,13 +33,13 @@ class SunmiLampServicePlugin : FlutterPlugin, MethodCallHandler {
                 startForLoop(status!!, lamp!!)
                 result.success(true)
             }
-            "startForSigle" -> {
+            "startForSingle" -> {
                 val lamp = call.argument<String>("lamp")
                 val status = call.argument<Int>("status")
 
                 Log.d("dimoll", "startForSigle ${call.arguments}")
 
-                startForSigle(status!!, lamp!!)
+                startForSingle(status!!, lamp!!)
                 result.success(true)
             }
             "closeAllLamp" -> {
@@ -59,7 +59,7 @@ class SunmiLampServicePlugin : FlutterPlugin, MethodCallHandler {
     }
 
     private fun startForLoop(status: Int, lamp: String) = service.startForLoop(status, lamp)
-    private fun startForSigle(status: Int, lamp: String) = service.startForSigle(status, lamp)
+    private fun startForSingle(status: Int, lamp: String) = service.startForSigle(status, lamp)
     private fun closeAllLamp() = service.closeAllLamp()
 
 }
